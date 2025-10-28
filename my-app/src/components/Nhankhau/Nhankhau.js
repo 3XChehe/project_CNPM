@@ -1,6 +1,11 @@
 import './Nhankhau.scss'
+import NhanKhauModal from './NhanKhauModal';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
-const nhankhau = (props) => {
+const Nhankhau = (props) => {
+    const [modalShow, setModalShow] = useState(false);
+
     return (
         <div className="nk-table-container">
             <div className="nk-header">
@@ -28,9 +33,11 @@ const nhankhau = (props) => {
                         <th>Nam</th>
                         <th>00001</th>
                         <td>
-                            <button className="view-btn" onClick={() => alert("me")}>
+                            <Button variant="primary" onClick={() => setModalShow(true)}>
                                 Xem
-                            </button>
+                            </Button>
+
+                            <NhanKhauModal show={modalShow} onHide={() => setModalShow(false)} />
                         </td>
                     </tr>
                     <tr>
@@ -61,4 +68,4 @@ const nhankhau = (props) => {
         </div>
     )
 }
-export default nhankhau;
+export default Nhankhau;
