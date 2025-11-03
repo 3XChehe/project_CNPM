@@ -1,0 +1,258 @@
+.xem-nk-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.xem-nk-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.xem-nk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid #e0e0e0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.xem-nk-content {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.ho-khau-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border-left: 4px solid #667eea;
+
+  .info-row {
+    display: flex;
+    margin-bottom: 12px;
+    font-size: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #495057;
+      min-width: 140px;
+    }
+
+    .value {
+      color: #212529;
+      flex: 1;
+    }
+  }
+}
+
+.nhan-khau-section {
+  h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.nhan-khau-table {
+  overflow-x: auto;
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+
+    thead {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+
+      th {
+        padding: 15px 12px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #e9ecef;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #f8f9fa;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 12px;
+          color: #495057;
+          font-size: 14px;
+
+          &.no-data {
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
+
+.xem-nk-footer {
+  padding: 20px 30px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  background: #f8f9fa;
+  border-radius: 0 0 12px 12px;
+
+  .btn-close {
+    padding: 10px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+    .text-close {
+      color: white;
+      margin-left: -10px;
+      margin-top: -2px;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .xem-nk-modal {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .xem-nk-header {
+    padding: 15px 20px;
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  .xem-nk-content {
+    padding: 20px;
+  }
+
+  .ho-khau-info {
+    .info-row {
+      flex-direction: column;
+
+      .label {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .nhan-khau-table {
+    table {
+      font-size: 12px;
+
+      thead th,
+      tbody td {
+        padding: 8px 6px;
+      }
+    }
+  }
+
+  .xem-nk-footer {
+    padding: 15px 20px;
+  }
+}
